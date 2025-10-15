@@ -1,0 +1,215 @@
+/* ShowDetails.css - Styles for the podcast show details page */
+
+.show-details {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Back Button */
+.back-button {
+  background: #666;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.back-button:hover {
+  background: #888;
+}
+
+/* Show Header */
+.show-header {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.show-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.show-info {
+  flex: 1;
+}
+
+.show-info h1 {
+  margin: 0 0 15px 0;
+  font-size: 2rem;
+  color: #333;
+}
+
+.show-description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Metadata */
+.show-metadata {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.metadata-item {
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.metadata-item strong {
+  color: #333;
+}
+
+/* Genre Pills */
+.genres-container {
+  margin-bottom: 15px;
+}
+
+.genres-container strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.genre-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.genre-pill {
+  background: #666;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Season Selector */
+.season-selector {
+  margin-bottom: 30px;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.season-selector h2 {
+  margin: 0;
+  color: #333;
+}
+
+.season-dropdown {
+  width: 200px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Episodes Section */
+.episodes-section {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.episodes-section h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.episodes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.episode-card {
+  display: flex;
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.episode-number {
+  background: #666;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.episode-content {
+  flex: 1;
+}
+
+.episode-content h4 {
+  margin: 0 0 8px 0;
+  color: #333;
+}
+
+.episode-description {
+  color: #666;
+  margin: 0 0 10px 0;
+  line-height: 1.5;
+}
+
+.episode-meta {
+  font-size: 14px;
+  color: #888;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.episode-date {
+  color: #666;
+}
+
+.episode-available {
+  color: #888;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .show-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .show-image {
+    width: 200px;
+    height: 200px;
+    align-self: center;
+  }
+  
+  .show-metadata {
+    grid-template-columns: 1fr;
+  }
+}
