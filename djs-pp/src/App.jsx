@@ -1,6 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
+import { AudioProvider } from './context/AudioContext';
+import AudioControls from './components/common/podcast/audio/AudioControls';
 import Home from './pages/Home';
 import ShowDetails from './pages/ShowDetails';
 import './general styles/styles.css';
@@ -15,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/show/:id" element={<ShowDetails />} />
         </Routes>
+        <AudioControls />
       </div>
       </AudioProvider>
     </ThemeProvider>
