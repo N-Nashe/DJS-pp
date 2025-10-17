@@ -1,0 +1,35 @@
+
+/* light theme (default) */
+/*backgroun colors*/
+:root{
+    --app-background-color: #f9f9f9;
+    --card-background-color: #ffffff;
+    --header-background-color: #ffffff;
+    --modal-background-color: #ffffff;
+}
+
+/*text colors*/
+: root{
+    --primary-text-color: #333333;
+    --secondary-text-color: #555555;
+    --muted-text-color: #777777;
+
+}
+
+/*border colors*/
+:root{
+    --border-color: #dee2e6;
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --box-shadow-hover-color: rgba(0, 0, 0, 0.2);
+}
+
+/*Interactive elements*/
+:root{
+   --button-primary-background: #333333;
+   --button-primary-text: #ffffff;
+   --input-background-color: #ffffff;
+    --input-border-color: #ececec;
+}
+
+
+
