@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { genres } from '../data.js'
 import { useNavigate } from 'react-router-dom'
+import ThemeToggleButton from '../components/common/ThemeToggleButton'
 
 function Home() {
    // State declarations
@@ -134,6 +135,7 @@ const shouldShowLoadMore = visibleCount < filteredAndSortedPodcasts.length
     <div>
       <header className="app-header">
         <h1>🎙️ Podcast App</h1>
+        <ThemeToggleButton />
         <div className="search-container">
           <input
             type="text"
