@@ -1,4 +1,4 @@
-import { genres } from ['../data.js']
+import { genres } from '../data.js'
 
   // Function to get genre names from IDs
    

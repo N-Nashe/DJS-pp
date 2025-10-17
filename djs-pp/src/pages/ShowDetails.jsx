@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { genres } from '../data.js'
 import { fetchPodcastDetailsById } from '../services/api'
+import { getGenreNamesFromArray } from '../utils/genreHelpers'
+import { getUniqueSeasons } from '../utils/podcastHelpers'
+import { formatDate } from '../utils/dateFormatters'
 import '../ShowDetails.css'
 
 function ShowDetails() {
@@ -36,7 +39,7 @@ function ShowDetails() {
   if (error) return <div className="error-message">Error: {error}</div>
   if (!podcast) return <div className="error-message">Podcast not found</div>
 
-  const uniqueSeasons = getUniqueSeasons()
+  const uniqueSeasons = getUniqueSeasons(podcast)
 
   return (
     <div className="show-details">
@@ -57,7 +60,7 @@ function ShowDetails() {
           <div className="genres-container">
             <strong>Genres:</strong>
             <div className="genre-pills">
-              {getGenreNames(podcast.genres).split(', ').map((genre, index) => (
+              {getGenreNamesFromArray(podcast.genres).split(', ').map((genre, index) => (
                 <span key={index} className="genre-pill">{genre}</span>
               ))}
             </div>
