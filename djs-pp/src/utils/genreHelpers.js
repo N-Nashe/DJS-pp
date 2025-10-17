@@ -1,7 +1,8 @@
+import { genres } from ['../data.js']
 
   // Function to get genre names from IDs
    
-  const getGenreNames = (genreIds) => {
+  export const getGenreNames = (genreIds) => {
     return genreIds.map(id => {
       const foundGenre = genres.find(genre => genre.id === id)
       return foundGenre ? foundGenre.title : 'Unknown'
@@ -9,7 +10,7 @@
   }
 
     // Handle genre names
-   export const getGenreNamesfromArray = (genreArray) => {
+   export const getGenreNamesFromArray = (genreArray) => {
     if (!genreArray || !Array.isArray(genreArray)) {
       return 'No genres available'
     }

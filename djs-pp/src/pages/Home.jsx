@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { fetchAllPodcasts } from '../services/api'
 import {formatDate} from '../utils/dateFormatters'
 import {getGenreNames} from '../utils/genreHelpers'
-import {filterAndSortPodcasts} from '../utils/podcastUtils'
+import {filterAndSortPodcasts} from '../utils/podcastHelpers'
 import ThemeToggleButton from '../components/common/ThemeToggleButton'
 
 function Home() {
@@ -60,31 +60,14 @@ function Home() {
   }, [selectedGenre, searchPodcast])
 
   // Combine filtering and sorting
-  const filteredAndSortedPodcasts = podcasts
-    .filter(podcast => {
-      // Search filter
-      const matchesSearch = podcast.title.toLowerCase().includes(searchPodcast.trim().toLowerCase())
-      
-      // Genre filter
-      const matchesGenre = selectedGenre === 'all' || podcast.genres.includes(parseInt(selectedGenre))
-      
-      // Both filters must match
-      return matchesSearch && matchesGenre
-    })
-    .sort((a, b) => {
-      if (sortOption === 'newest') {
-        return new Date(b.updated) - new Date(a.updated)
-      } else if (sortOption === 'a-z') {
-        return a.title.localeCompare(b.title)
-      } else if (sortOption === 'z-a') {
-        return b.title.localeCompare(a.title)
-      } else if (sortOption === 'no sort') {
-        return 0
-      }
-      return 0
-    })
+  const filteredAndSortedPodcasts = filterAndSortPodcasts(podcasts,
+    searchPodcast,
+    selectedGenre,
+    sortOption
+  );
 
-
+    
+   
 
 // Simple click handler
 const loadMore = () => {
