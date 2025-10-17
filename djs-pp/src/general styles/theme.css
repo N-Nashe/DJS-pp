@@ -64,5 +64,35 @@
     --input-border-color: #dc6f6f;
 }
 
+/*Apply smooth transitions for themes*/
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
+/*Theme-toggle-button*/
+.theme-toggle-button{
+    background-color: var (--button-primary-background);
+    color: var(--button-primary-text);
+    border: 1px solid var(--border-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    display:flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.5s ease;
+
+}
+
+.theme-toggle-button:hover{
+    box-shadow: 0 4px 8px var(--box-shadow-hover-color);
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.theme-toggle-button:active{
+    transform: translateY(0);
+
+}
 
