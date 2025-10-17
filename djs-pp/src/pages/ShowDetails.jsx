@@ -3,11 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { fetchPodcastDetailsById } from '../services/api';
 import { getGenreNamesFromArray } from '../utils/genreHelpers';
 import { getUniqueSeasons } from '../utils/podcastHelpers';
+import { useAudioContext } from '../context/AudioContext';
 import '../ShowDetails.css';
 
 function ShowDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { playEpisode } = useAudioContext();
 
   // State declarations for detailed podcast data
   const [podcast, setPodcast] = useState(null);
@@ -117,9 +119,12 @@ function ShowDetails() {
                       </p>
                       {episode.file && (
                         <div className="episode-meta">
-                          <span className="episode-available">
-                            Available to play
-                          </span>
+                          <button 
+                            className="play-episode-btn"
+                            onClick={() => playEpisode(episode)}
+                          >
+                            ▶️ Play Episode
+                          </button>
                         </div>
                       )}
                     </div>
