@@ -8,6 +8,7 @@ body {
   background: #f9f9f9;
   color: var(--primary-text-color);
   background-color: var(--app-background-color);
+  padding-bottom: 120px; /* Space for audio controls */
 }
 
 .app-header {
