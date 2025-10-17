@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAudioContext } from '../../../../context/AudioContext';
-import './AudioControls.css';
+import '../../../../css-components/audioPlayer.css';
 
 const AudioControls = () => {
     const {
