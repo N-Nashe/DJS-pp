@@ -1,6 +1,6 @@
 
 /* light theme (default) */
-/*backgroun colors*/
+/*background colors*/
 :root{
     --app-background-color: #f9f9f9;
     --card-background-color: #ffffff;
@@ -29,6 +29,39 @@
    --button-primary-text: #ffffff;
    --input-background-color: #ffffff;
     --input-border-color: #ececec;
+}
+
+
+/* dark theme   */
+/*background colors*/
+[data-theme="dark"] {
+    --app-background-color: #121212;
+    --card-background-color: #1e1e1e;
+    --header-background-color: #1a1a1a;
+    --modal-background-color: #2d2d2d;
+
+
+/*text colors*/
+
+    --primary-text-color: #ffffff;
+    --secondary-text-color: #cccccc;
+    --muted-text-color: #999999;
+
+
+
+/*border colors*/
+
+    --border-color: #2c2c2c;
+    --box-shadow-color: rgba(0, 0, 0, 0.3);
+    --box-shadow-hover-color: rgba(0, 0, 0, 0.35);
+
+
+/*Interactive elements*/
+
+   --button-primary-background: #e7dfdf;
+   --button-primary-text: #030101;
+   --input-background-color: #ce8484;
+    --input-border-color: #dc6f6f;
 }
 
 
