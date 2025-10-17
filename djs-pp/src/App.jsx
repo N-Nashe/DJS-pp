@@ -9,12 +9,14 @@ import './general styles/theme.css';
 function App() {
   return (
     <ThemeProvider>
+      <AudioProvider>
       <div className="app-container">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/show/:id" element={<ShowDetails />} />
         </Routes>
       </div>
+      </AudioProvider>
     </ThemeProvider>
   );
 }

@@ -110,6 +110,7 @@ export const AudioProvider = ({ children }) => {
         playEpisode,
         pauseEpisode,
         togglePlayPause,
+        seekToTime,
     };
 
     return (
