@@ -6,6 +6,9 @@ const AudioControls = () => {
         currentTime,
         isPlaying,
         duration,
+        pauseEpisode,
+        playEpisode,
+        seekToTime,
     } = useAudioContext();
 
 const formatTime = (seconds) => {
@@ -17,9 +20,14 @@ const formatTime = (seconds) => {
 
 return (
     <div className="audio-controls">
-        {/*controls will go here*/}
-    </div>
-);
+        {<button
+        className="play-pause-btn"
+        onClick={isPlaying ? pauseEpisode : playEpisode}
+        >
+        {isPlaying ? '⏸️' : '▶️'}
+        </button>
+        
+        
+        
 };
 export default AudioControls;
-  
