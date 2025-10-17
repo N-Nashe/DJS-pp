@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   margin: 0;
   background: #f9f9f9;
   color: var(--primary-text-color);
@@ -20,7 +20,7 @@ body {
   box-shadow: 0 1px 5px var(--box-shadow-color);
 }
 
-.search-container{
+.search-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,7 +30,7 @@ body {
   margin-top: 1rem;
 }
 
-.Search-bar{
+.Search-bar {
   flex: 1;
   padding: 0.5rem;
   border: 1px solid #ccc;
@@ -57,7 +57,6 @@ body {
   box-shadow: 0 2px 8px var(--box-shadow-color);
   overflow: hidden;
   border: 1px solid var(--border-color);
- 
 }
 
 .card:hover {
@@ -240,7 +239,7 @@ body {
   display: none;
 }
 
-.load-more{
+.load-more {
   background-color: #454749;
   color: white;
   border: none;

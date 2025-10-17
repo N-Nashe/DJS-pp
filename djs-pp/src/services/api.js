@@ -2,30 +2,32 @@
 // Fetch all podcasts for home.jsx
 export const fetchAllPodcasts = async () => {
   try {
-    const response = await fetch('https://podcast-api.netlify.app/')
-    
+    const response = await fetch('https://podcast-api.netlify.app/');
+
     if (!response.ok) {
-      throw new Error('Failed to load podcasts!')
+      throw new Error('Failed to load podcasts!');
     }
-    
-    const data = await response.json()
-    return data
+
+    const data = await response.json();
+    return data;
   } catch (error) {
-    throw new Error(error.message)
+    throw new Error(error.message);
   }
-}
+};
 // Fetch podcast details by ID from showDetails.jsx
 export const fetchPodcastDetailsById = async (podcastId) => {
   try {
-    const response = await fetch(`https://podcast-api.netlify.app/id/${podcastId}`)
-    
+    const response = await fetch(
+      `https://podcast-api.netlify.app/id/${podcastId}`,
+    );
+
     if (!response.ok) {
-      throw new Error('Failed to load podcast details')
+      throw new Error('Failed to load podcast details');
     }
-    
-    const data = await response.json()
-    return data
+
+    const data = await response.json();
+    return data;
   } catch (error) {
-    throw new Error(error.message)
+    throw new Error(error.message);
   }
-}
+};
