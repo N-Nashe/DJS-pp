@@ -1,16 +1,18 @@
-/* ShowDetails.css - Styles for the podcast show details page */
+/* ShowDetails.css - Updated for theme support */
 
 .show-details {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
+  background-color: var(--app-background-color);
+  color: var(--primary-text-color);
 }
 
 /* Back Button */
 .back-button {
-  background: #666;
-  color: white;
+  background-color: var(--button-primary-background);
+  color: var(--button-primary-text);
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -20,7 +22,7 @@
 }
 
 .back-button:hover {
-  background: #888;
+  opacity: 0.8;
 }
 
 /* Show Header */
@@ -28,9 +30,9 @@
   display: flex;
   gap: 30px;
   margin-bottom: 30px;
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
+  background-color: var(--card-background-color);
+  padding: 20px;
+  border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   border: 1px solid #e0e0e0;
 }
@@ -50,11 +52,11 @@
 .show-info h1 {
   margin: 0 0 15px 0;
   font-size: 2rem;
-  color: #333;
+  color: var(--primary-text-color);
 }
 
 .show-description {
-  color: #666;
+  color: var(--secondary-text-color);
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -67,13 +69,13 @@
 }
 
 .metadata-item {
-  background: white;
+  background-color: var(--card-background-color);
   padding: 10px;
   border-radius: 5px;
 }
 
 .metadata-item strong {
-  color: #333;
+  color: var(--primary-text-color);
 }
 
 /* Genre Pills */
@@ -84,7 +86,7 @@
 .genres-container strong {
   display: block;
   margin-bottom: 8px;
-  color: #333;
+  color: var(--primary-text-color);
 }
 
 .genre-pills {
@@ -94,8 +96,8 @@
 }
 
 .genre-pill {
-  background: #666;
-  color: white;
+  background-color: var(--button-primary-background);
+  color: var(--button-primary-text);
   padding: 4px 12px;
   border-radius: 20px;
   font-size: 14px;
@@ -113,7 +115,7 @@
 
 .season-selector h2 {
   margin: 0;
-  color: #333;
+  color: var(--primary-text-color);
 }
 
 .season-dropdown {
@@ -126,15 +128,15 @@
 
 /* Episodes Section */
 .episodes-section {
-  background: white;
+  background-color: var(--card-background-color);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px var(--box-shadow-color);
 }
 
 .episodes-section h3 {
   margin: 0 0 10px 0;
-  color: #333;
+  color: var(--primary-text-color);
 }
 
 .episodes-list {
@@ -146,14 +148,15 @@
 
 .episode-card {
   display: flex;
-  background: #f8f9fa;
+  background-color: var(--card-background-color);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 15px;
 }
 
 .episode-number {
-  background: #666;
-  color: white;
+  background-color: var(--button-primary-background);
+  color: var(--button-primary-text);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -171,29 +174,29 @@
 
 .episode-content h4 {
   margin: 0 0 8px 0;
-  color: #333;
+  color: var(--primary-text-color);
 }
 
 .episode-description {
-  color: #666;
+  color: var(--secondary-text-color);
   margin: 0 0 10px 0;
   line-height: 1.5;
 }
 
 .episode-meta {
   font-size: 14px;
-  color: #888;
+  color: var(--muted-text-color);
   display: flex;
   gap: 15px;
   align-items: center;
 }
 
 .episode-date {
-  color: #666;
+  color: var(--secondary-text-color);
 }
 
 .episode-available {
-  color: #888;
+  color: var(--muted-text-color);
 }
 
 /* Responsive Design */
