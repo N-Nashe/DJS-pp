@@ -91,12 +91,16 @@ function Home() {
   return (
     <div>
       <header className="app-header">
-        <h1>🎙️ Podcast App</h1>
-        <button onClick={() => navigate('/favorites')} className="favorites-link">
-          ❤️ Favorites {favoritesCount > 0 && `(${favoritesCount})`}
-        </button>
-        <ThemeToggleButton />
-        <div className="search-container">
+        <div className="header-top">
+          <h1>🎙️ Podcast App</h1>
+          <div className="header-actions">
+            <button onClick={() => navigate('/favorites')} className="favorites-link">
+              ❤️ Favorites {favoritesCount > 0 && `(${favoritesCount})`}
+            </button>
+            <ThemeToggleButton />
+          </div>
+        </div>
+        <div className="search-section">
           <input
             type="text"
             placeholder="What do you want to listen to..."
@@ -104,30 +108,31 @@ function Home() {
             onChange={handleSearchChanges}
             className="search-bar"
           />
+          <div className="filter-buttons">
+            <select value={sortOption} onChange={handleSortChange}>
+              <option value="newest">Newest First</option>
+              <option value="a-z">Sort A-Z</option>
+              <option value="z-a">Sort Z-A</option>
+              <option value="no sort">No Sort</option>
+            </select>
 
-          <select value={sortOption} onChange={handleSortChange}>
-            <option value="newest">Newest First</option>
-            <option value="a-z">Sort A-Z</option>
-            <option value="z-a">Sort Z-A</option>
-            <option value="no sort">No Sort</option>
-          </select>
-
-          <select
-            value={selectedGenre}
-            onChange={handleGenreChange}
-            className="genre-dropdown"
-          >
-            <option value="all">All Genres</option>
-            <option value="1">Personal Growth</option>
-            <option value="2">True Crime</option>
-            <option value="3">History</option>
-            <option value="4">Comedy</option>
-            <option value="5">Entertainment</option>
-            <option value="6">Business</option>
-            <option value="7">Fiction</option>
-            <option value="8">News</option>
-            <option value="9">Kids & Family</option>
-          </select>
+            <select
+              value={selectedGenre}
+              onChange={handleGenreChange}
+              className="genre-dropdown"
+            >
+              <option value="all">All Genres</option>
+              <option value="1">Personal Growth</option>
+              <option value="2">True Crime</option>
+              <option value="3">History</option>
+              <option value="4">Comedy</option>
+              <option value="5">Entertainment</option>
+              <option value="6">Business</option>
+              <option value="7">Fiction</option>
+              <option value="8">News</option>
+              <option value="9">Kids & Family</option>
+            </select>
+          </div>
         </div>
       </header>
       <main className="grid">
