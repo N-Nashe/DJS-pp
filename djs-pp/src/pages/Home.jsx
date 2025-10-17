@@ -5,10 +5,14 @@ import { formatDate } from '../utils/dateFormatters';
 import { getGenreNames } from '../utils/genreHelpers';
 import { filterAndSortPodcasts } from '../utils/podcastHelpers';
 import ThemeToggleButton from '../components/common/ThemeToggleButton';
+import FavoriteButton from '../components/common/podcast/FavoriteButton';
+import { useFavoritesContext } from '../context/FavoritesContext';
+import '../css-components/favorites.css';
 
 function Home() {
   // State declarations
   const navigate = useNavigate();
+  const { favoritesCount } = useFavoritesContext();
   const [podcasts, setPodcasts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -88,6 +92,9 @@ function Home() {
     <div>
       <header className="app-header">
         <h1>🎙️ Podcast App</h1>
+        <button onClick={() => navigate('/favorites')} className="favorites-link">
+          ❤️ Favorites {favoritesCount > 0 && `(${favoritesCount})`}
+        </button>
         <ThemeToggleButton />
         <div className="search-container">
           <input
@@ -136,11 +143,16 @@ function Home() {
               onClick={() => handleCardClick(podcast)}
               style={{ cursor: 'pointer' }}
             >
-              <img
-                src={podcast.image}
-                alt={podcast.title}
-                className="card-image"
-              />
+              <div className="card-image-container">
+                <img
+                  src={podcast.image}
+                  alt={podcast.title}
+                  className="card-image"
+                />
+                <div className="favorite-button-overlay">
+                  <FavoriteButton podcast={podcast} size="medium" />
+                </div>
+              </div>
               <div className="card-content">
                 <h2 className="card-title">{podcast.title}</h2>
                 <p className="card-seasons">

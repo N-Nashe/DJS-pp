@@ -1,0 +1,42 @@
+/* Simple Favorites Page */
+.favorites-page {
+  padding: 20px;
+}
+
+.favorites-header h1 {
+  margin: 15px 0 10px 0;
+}
+
+.back-button {
+  background: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.back-button:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Empty state */
+.empty-favorites {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Simple Favorite Button */
+.favorite-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+}
+
+.favorite-button:hover {
+  opacity: 0.7;
+}
