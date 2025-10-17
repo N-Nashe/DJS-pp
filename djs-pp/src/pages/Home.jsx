@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { genres } from '../data.js'
 import { useNavigate } from 'react-router-dom'
+import { fetchAllPodcasts } from '../services/api'
+import {formatDate} from '../utils/dateFormatters'
+import {getGenreNames} from '../utils/genreHelpers'
+import {filterAndSortPodcasts} from '../utils/podcastUtils'
 import ThemeToggleButton from '../components/common/ThemeToggleButton'
 
 function Home() {
@@ -34,51 +38,19 @@ function Home() {
   }
 
  
-
-  // Function to get genre names from IDs
-   
-  const getGenreNames = (genreIds) => {
-    return genreIds.map(id => {
-      const foundGenre = genres.find(genre => genre.id === id)
-      return foundGenre ? foundGenre.title : 'Unknown'
-    }).join(', ')
-  }
-
-//Filter podcasts based on search term
-const filteredPodcasts = podcasts.filter(podcast =>
-  podcast.title.toLowerCase().includes(searchPodcast.replace(/\s+/g, '')
-    .trim().toLowerCase())
-)
-  
-  const formatDate = (dateString) => {
-    const date = new Date(dateString)
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
-    })
-  }
-  
-  useEffect(() => {
-    const fetchPodcasts = async () => {
-      
-      try{
-        const response = await fetch ('https://podcast-api.netlify.app/')
-        
-        if (!response.ok){
-          throw new Error('Failed to load podcasts!')
-        }
-        const data = await response.json()
+ useEffect(() => {
+    const loadPodcasts = async () => {
+      try {
+        const data = await fetchAllPodcasts()
         setPodcasts(data)
-      } catch (error){
+      } catch (error) {
         setError(error.message)
-
-      } finally{
-        setLoading(false);
+      } finally {
+        setLoading(false)
       }
     }
 
-    fetchPodcasts()  
+    loadPodcasts()
   }, [])
 
   // Reset pagination when genre or search changes

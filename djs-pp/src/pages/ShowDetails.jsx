@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { genres } from '../data.js'
+import { fetchPodcastDetailsById } from '../services/api'
 import '../ShowDetails.css'
 
 function ShowDetails() {
@@ -15,13 +16,9 @@ function ShowDetails() {
 
   // Fetch detailed podcast data based on ID
   useEffect(() => {
-    const fetchPodcastDetails = async () => {
+    const loadPodcastDetails = async () => {
       try {
-        const response = await fetch(`https://podcast-api.netlify.app/id/${id}`)
-        if (!response.ok) {
-          throw new Error('Failed to load podcast details')
-        }
-        const data = await response.json()
+        const data = await fetchPodcastDetailsById(id)
         setPodcast(data)
         setSelectedSeason(1)
       } catch (error) {
@@ -30,45 +27,10 @@ function ShowDetails() {
         setLoading(false)
       }
     }
-    fetchPodcastDetails()
+    loadPodcastDetails()
   }, [id])
 
-  // Handle genre names
-  const getGenreNames = (genreArray) => {
-    if (!genreArray || !Array.isArray(genreArray)) {
-      return 'No genres available'
-    }
-    
-    const actualGenres = genreArray.filter(genre => 
-      genre && 
-      genre !== 'All' && 
-      genre !== 'Featured' &&
-      genre !== 'ALL' &&
-      genre !== 'FEATURED'
-    )
-    
-    return actualGenres.length > 0 ? actualGenres.join(', ') : 'No specific genres'
-  }
 
-  // Function to format date
-  const formatDate = (dateString) => {
-    const date = new Date(dateString)
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
-    })
-  }
-
-  const getUniqueSeasons = () => {
-    if (!podcast?.seasons) return []
-    const seen = new Set()
-    return podcast.seasons.filter(season => {
-      if (seen.has(season.season)) return false
-      seen.add(season.season)
-      return true
-    })
-  }
 
   if (loading) return <div className="loading">Loading podcast details...</div>
   if (error) return <div className="error-message">Error: {error}</div>
