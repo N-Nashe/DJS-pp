@@ -90,6 +90,14 @@ export const AudioProvider = ({ children }) => {
         }
     };
 
+    //function to seek to specific time (for clicking on progress bar)
+    const seekToTime = (timeInSeconds) =>{
+        if (audioRef.current) {
+            audioRef.current.currentTime = timeInSeconds
+            setCurrentTime(timeInSeconds)
+        }
+    }
+
     //values for use by other components
     const audioValues = {
         currentEpisode,
